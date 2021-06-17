@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quiz Game</title>
+  </head>
+  <body>
+      
+<div class = "Highscore"
+< a href = "./Highscore.html">Highscore</a>
+<button id="gobackBtn" onclick="location.href='.index.html'">
+    </button>
+
+<div id = "intro">
+<h1>Quiz Game</h1>
+Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem, libero nobis, voluptatum laborum vitae sit quibusdam natus omnis ipsa sint dolorum voluptas quisquam eaque ratione sed, magni perspiciatis necessitatibus nemo?
+<button id = "startBtn">start</button>
+</div>
+<div id = "questions" class = "hide"/>
+</div>
+<div id="initialDiv" class="hide">
+</div>
+
+
+
+
+
+<script>
+    var startBtn = document.querySelector("startbtn")
+    var questionDiv = document.querySelector ("#questions")
+    var intoDiv = document.querySelector("#intro")
+
+var question = [
+{q: 'How many days are in a year.',
+c: ['365', '784', '24','364'],
+a:1
+},
+{q: 'Can pigs fly.',  
+c: ['no', 'on friday', 'maybe', 'yes'],
+a:3
+},
+{q: 'burgers can be made with which of the following proteins.', 
+c: ['chicken', 'Turkey', 'Beans', 'Beef', 'all of the above'],
+a: 4},
+{q: 'The Magna Carta was agreed to or signed in.',
+c: ['1214', '1215', '1512', '1575'], 
+a: 1 },
+{q: 'the Declaration of Independence was created in 1745.', 
+c: ['1864', '1715', '1776', '1765'],
+a:2}
+];
+var timeRemaining = questions.length * 15
+var questionIndex = 0
+var pidClock
+startBtn.addEventListener ("click", function(){
+    questionsDiv.classList.remove("hide")
+    introDiv.classList.add("hide")
+
+    pidClock =setInterval(countdown, 1000)
+    
+
+})
+</script>
+
+    <script src="./assets/js/game.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
