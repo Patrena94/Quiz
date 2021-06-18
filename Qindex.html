@@ -5,66 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quiz Game</title>
+    <style>
+        .hide{display: none;
+        }
+</style>
   </head>
   <body>
       
-<div class = "Highscore"
-< a href = "./Highscore.html">Highscore</a>
+<div class = "Highscore">
+<a href= "Highscore.html">Highscore</a>
 <button id="gobackBtn" onclick="location.href='.index.html'">
     </button>
 
-<div id = "intro">
+Time Remaining: <spanz id="TimeLeftSpan"></spanz>
+<div id="intro">
 <h1>Quiz Game</h1>
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem, libero nobis, voluptatum laborum vitae sit quibusdam natus omnis ipsa sint dolorum voluptas quisquam eaque ratione sed, magni perspiciatis necessitatibus nemo?
-<button id = "startBtn">start</button>
+Try to answer the following code-related questions within the time limit.  Keep in mind that incorrect answers will penalize your score/time by ten seconds!<button id = "startBtn">start</button>
 </div>
 <div id = "questions" class = "hide"/>
+<h1 id="title"></h1>
+<ul>
+    <li>
+        <button id="option1"></button>
+        <button id="option2"></button>
+        <button id="option3"></button>
+        <button id="option4"></button>
+        <button id="option5"></button>
+
+    </li>
+</ul>
 </div>
 <div id="initialDiv" class="hide">
 </div>
-
-
-
-
+<div id="initialDiv"> 
+    <input type="text" id="initial">
+    <button id="submit">Submit</button>
+</div>
 
 <script>
-    var startBtn = document.querySelector("startbtn")
-    var questionDiv = document.querySelector ("#questions")
-    var intoDiv = document.querySelector("#intro")
-
-var question = [
-{q: 'How many days are in a year.',
+    var startBtn = document.querySelector("#startBtn")
+    var questionsDiv = document.querySelector ("#questions")
+    var introDiv = document.querySelector("#introDiv")
+    var TimeLeftSpan=document.querySelector("#TimeLeftSpan")
+    var initialDiv = document.querySelector("#initialDiv")
+    var title=document.querySelector("#title")
+    var option1=document.querySelector("#option1")
+    var option2=document.querySelector("#option2")
+    var option3=document.querySelector("#option3")
+    var option4=document.querySelector("#option4")
+    var option5=document.querySelector("#option5")
+var questions = [
+{
+q: 'How many days are in a year.',
 c: ['365', '784', '24','364'],
 a:1
 },
-{q: 'Can pigs fly.',  
+{
+q: 'Can pigs fly.',  
 c: ['no', 'on friday', 'maybe', 'yes'],
 a:3
 },
-{q: 'burgers can be made with which of the following proteins.', 
-c: ['chicken', 'Turkey', 'Beans', 'Beef', 'all of the above'],
-a: 4},
-{q: 'The Magna Carta was agreed to or signed in.',
+{
+q: 'burgers can be made with which of the following proteins.', 
+c: ['Turkey', 'Beans', 'Beef', 'all of the above'],
+a: 3},
+{
+q: 'The Magna Carta was agreed to or signed in.',
 c: ['1214', '1215', '1512', '1575'], 
 a: 1 },
-{q: 'the Declaration of Independence was created in 1745.', 
+{
+q: 'the Declaration of Independence was created in 1745.', 
 c: ['1864', '1715', '1776', '1765'],
 a:2}
 ];
-var timeRemaining = questions.length * 15
-var questionIndex = 0
+var timeRemaining = questions.length *15
+
+var questionIndex=0
+
 var pidClock
-startBtn.addEventListener ("click", function(){
+
+startBtn.addEventListener("click", function (){
     questionsDiv.classList.remove("hide")
     introDiv.classList.add("hide")
+    loadQuestion()
 
-    pidClock =setInterval(countdown, 1000)
-    
-
+    pidClock=setInterval(countDown, 1000)
 })
-</script>
+function loadQuestion(){
+    title.textContent=questions[questionIndex].q
+    option1.textContent=questions[questionIndex].c[0]
+    option2.textContent=questions[questionIndex].c[1]
+    option3.textContent=questions[questionIndex].c[2]
+    option4.textContent=questions[questionIndex].c[3]
+    option5.textContent=questions[questionIndex].c[4]
+}
+loadQuestion()
+option1.addEventListener("click", function(){
+    questionIndex++
+    loadQuestion()
+})
 
-    <script src="./assets/js/game.js"></script>
+option2.addEventListener("click", function(){
+    questionIndex++
+    loadQuestion()
+})
+
+option3.addEventListener("click", function(){
+    questionIndex++
+    loadQuestion()
+})
+
+option4.addEventListener("click", function(){
+    questionIndex++
+    loadQuestion()
+})
+
+option5.addEventListener("click", function(){
+    questionIndex++
+    loadQuestion()
+    
+})
+function countDown() { 
+    if(timeRemaining===0)
+{
+    clearInterval(pidClock)
+    questionsDiv.classList.add("hide")
+    initialDiv.classList.remove("hide")
+}
+TimeLeftSpan.textContent =timeRemaining
+timeRemaining--  //timeRemaining - timeRemaining-1
+}
+</script>
   </body>
 </html>
 
