@@ -1,5 +1,6 @@
 !DocType html>
 <html lang ="en">
+    <link rel="stylesheet" href="assets/style.css"/>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-compatible" content = "IE-edge">
@@ -11,12 +12,13 @@
     All high scores
     <button id="gobackBtn" onclick="location.href='.index.html'"> Go Back
     </button>
-    <div class=" id="clearHighscoreBtn"> Clear history of High Scores
+    <button id="clearHighscoreBtn"> Clear history of High Scores
     </button>
     </div>
     <script>
-        var clearHighscoreBtn = document.querySelector("#clearHighscore")
-        clearHighscoreBtn.addEventListner("click",function(){localStorage.clear()
+        var clearHighscoreBtn = document.querySelector("#clearHighscoreBtn")
+        clearHighscoreBtn.addEventListner("click",function(){localStorage.clear
+
         })
     </script>
 </body>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="assets/style.css"/>
     <title>Quiz Game</title>
     <style>
         .hide{display: none;
@@ -12,33 +13,43 @@
   </head>
   <body>
       
-<div class = "Highscore">
-<a href= "Highscore.html">Highscore</a>
-<button id="gobackBtn" onclick="location.href='.index.html'">
-    </button>
-
-Time Remaining: <spanz id="TimeLeftSpan"></spanz>
-<div id="intro">
+<div class = "Highscores">
+<a href= "Highscores.html">High Scores</a>
+<div class="timer">Time Remaining: <span id="time">0</span></div>
+<class id="start-screen" class="start">
+<div class= "wrapper">
+<div id="introDiv">
 <h1>Quiz Game</h1>
-Try to answer the following code-related questions within the time limit.  Keep in mind that incorrect answers will penalize your score/time by ten seconds!<button id = "startBtn">start</button>
+<p>Try to answer the following code-related questions within the time limit.  Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
 </div>
-<div id = "questions" class = "hide"/>
+<button id = "startBtn">start</button>
+<div id="end-screen" class="hide"></div>
+</div>
+<div class="card-body"
+</div>
+<div id ="questions" class = "hide"/>
 <h1 id="title"></h1>
 <ul>
-    <li>
+    <ol>
         <button id="option1"></button>
+    </ol>
+    <ol>    
         <button id="option2"></button>
+    </ol>
+    <ol>  
         <button id="option3"></button>
+    </ol>
+    <ol>  
         <button id="option4"></button>
-        <button id="option5"></button>
 
-    </li>
+    </ol>
 </ul>
 </div>
 <div id="initialDiv" class="hide">
 </div>
 <div id="initialDiv"> 
     <input type="text" id="initial">
+    </div>
     <button id="submit">Submit</button>
 </div>
 
@@ -46,37 +57,54 @@ Try to answer the following code-related questions within the time limit.  Keep 
     var startBtn = document.querySelector("#startBtn")
     var questionsDiv = document.querySelector ("#questions")
     var introDiv = document.querySelector("#introDiv")
-    var TimeLeftSpan=document.querySelector("#TimeLeftSpan")
+    var Timer = document.querySelector("#Timer")
     var initialDiv = document.querySelector("#initialDiv")
     var title=document.querySelector("#title")
     var option1=document.querySelector("#option1")
     var option2=document.querySelector("#option2")
     var option3=document.querySelector("#option3")
     var option4=document.querySelector("#option4")
-    var option5=document.querySelector("#option5")
 var questions = [
 {
-q: 'How many days are in a year.',
+q: 'How many days are in a year?',
 c: ['365', '784', '24','364'],
 a:1
 },
+{q: 'The Condition in an if/else statement is enclosed with ________?',
+c: ['quotes', 'curly brackets', 'parenthesis', 'square brackets'], 
+a: 3 },
 {
-q: 'Can pigs fly.',  
+q: 'Can pigs fly?',  
 c: ['no', 'on friday', 'maybe', 'yes'],
 a:3
 },
 {
-q: 'burgers can be made with which of the following proteins.', 
+q: 'Arrays in JavaScript can be used to store____?',
+c: ['numbers and strings', 'other arrays', 'booleans', 'all of the above'], 
+a: 4 },
+  {
+q: 'burgers can be made with which of the following proteins?', 
 c: ['Turkey', 'Beans', 'Beef', 'all of the above'],
 a: 3},
 {
-q: 'The Magna Carta was agreed to or signed in.',
+q: 'String values must be enclosed within ______when being assigned to variables.',
+c: ['commas', 'curly brackets', 'quotes', 'parenthesis'], 
+a: 2 },
+{
+q: 'The Magna Carta was agreed to or signed in?',
 c: ['1214', '1215', '1512', '1575'], 
 a: 1 },
 {
-q: 'the Declaration of Independence was created in 1745.', 
+q: 'Avery useful tool used during development and debugging for printing content to the debugger is:',
+c: ['JavaScript', 'terminal/bash', 'for loops', 'console.log'], 
+a: 3 },
+{ 
+q: 'the Declaration of Independence was created in?', 
 c: ['1864', '1715', '1776', '1765'],
-a:2}
+a:2},
+{q: 'Commonly used data types Do Not include:',
+c: ['strings', 'booleans', 'alerts', 'numbers'], 
+a: 1 },
 ];
 var timeRemaining = questions.length *15
 
@@ -88,16 +116,44 @@ startBtn.addEventListener("click", function (){
     questionsDiv.classList.remove("hide")
     introDiv.classList.add("hide")
     loadQuestion()
-
-    pidClock=setInterval(countDown, 1000)
+    pidClock=setInterval(countDown, 30000)
 })
+function loadQuestion(){
+    title.textContent=questions[questionIndex].q  
+    option1.textContent=questions[questionIndex].c[0]
+    option2.textContent=questions[questionIndex].c[1]
+    option3.textContent=questions[questionIndex].c[2]
+    option4.textContent=questions[questionIndex].c[3]
+} 
+  function countDown(){ 
+  //  if(timeRemaining===0)
+ {
+    clearInterval(pidClock)
+    questionsDiv.classList.add("hide")
+    initialDiv.classList.remove("hide")
+}
+Timer.textContent =timeRemaining
+timeRemaining--  //timeRemaining - timeRemaining-1
+}
+//function countDown() { 
+   // var timeInterval =setInterval(function(){
+   // if(timeRemaining> 1){
+  //  timerEl.textContent= timeRemaining + 'seconds remaining';
+ //   timeRemaining--;
+  //  } else if(timeRemaining==0){timerEl.textContent = timeLeft + 'second remaining';
+//timeRemaining--;
+//} else{timerEl.textContent = '';
+  //  clearInterval(pidClock);
+  //  questionsDiv.classList.add("hide")
+  //  initialDiv.classList.remove("hide")
+    //displayMessage();
+
 function loadQuestion(){
     title.textContent=questions[questionIndex].q
     option1.textContent=questions[questionIndex].c[0]
     option2.textContent=questions[questionIndex].c[1]
     option3.textContent=questions[questionIndex].c[2]
     option4.textContent=questions[questionIndex].c[3]
-    option5.textContent=questions[questionIndex].c[4]
 }
 loadQuestion()
 option1.addEventListener("click", function(){
@@ -119,22 +175,34 @@ option4.addEventListener("click", function(){
     questionIndex++
     loadQuestion()
 })
-
-option5.addEventListener("click", function(){
-    questionIndex++
-    loadQuestion()
-    
-})
-function countDown() { 
-    if(timeRemaining===0)
-{
-    clearInterval(pidClock)
-    questionsDiv.classList.add("hide")
-    initialDiv.classList.remove("hide")
-}
-TimeLeftSpan.textContent =timeRemaining
-timeRemaining--  //timeRemaining - timeRemaining-1
-}
+//var checkAnswer = "a"
+//<div class="option1" id="a"onclick="checkAnswer('1')">1</div>
+   // let score =0;
+  //  function checkAnswer ("a")
+ //   {if (questions[runningquestionIndex].correct ==answer){ score++; 
+  //  answerisCorrect();
+////}else {answerisWrong();
+//}
+//if(runningquestionIndex < lastquestionIndex)
+//{ count =0; runningquestionIndex++;
+  //  questionrender();
+//}else
+//{ clearInterval(Timer);
+  //  }
+  //<div class="option2" id="a"onclick="checkAnswer('1')">1</div>
+   // let score =0;
+  //  function checkAnswer ("a")
+ //   {if (questions[runningquestionIndex].correct ==answer){ score++; 
+  //  answerisCorrect();
+////}else {answerisWrong();
+//}
+//if(runningquestionIndex < lastquestionIndex)
+//{ count =0; runningquestionIndex++;
+  //  questionrender();
+//}else
+//{ clearInterval(Timer);
+  //  }
+    //}  
 </script>
   </body>
 </html>
