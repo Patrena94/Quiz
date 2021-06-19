@@ -14,7 +14,7 @@ updated style.css file to show the gobackBtn and clearHighschoreBtn as Teal. Als
 changed the choice buttons to teal from violet.
 removed option 5 which was an empty choice button.
 <div class="timer">Time Remaining: <span id="time">0</span></div>
- remove/reconsider:
+ remove:
  function countDown() { 
     var timeInterval =setInterval(function(){
     if(timeRemaining> 1){
@@ -27,3 +27,4 @@ timeRemaining--;
     questionsDiv.classList.add("hide")
     initialDiv.classList.remove("hide")
     displayMessage();
+    assistance from Jamie with refractoring the function countdown.

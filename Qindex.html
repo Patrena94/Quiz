@@ -15,7 +15,7 @@
       
 <div class = "Highscores">
 <a href= "Highscores.html">High Scores</a>
-<div class="timer">Time Remaining: <span id="time">0</span></div>
+<div class="Timer">Time Remaining: <span id="time">0</span></div>
 <class id="start-screen" class="start">
 <div class= "wrapper">
 <div id="introDiv">
@@ -57,7 +57,7 @@
     var startBtn = document.querySelector("#startBtn")
     var questionsDiv = document.querySelector ("#questions")
     var introDiv = document.querySelector("#introDiv")
-    var Timer = document.querySelector("#Timer")
+    var time = document.querySelector("#time")
     var initialDiv = document.querySelector("#initialDiv")
     var title=document.querySelector("#title")
     var option1=document.querySelector("#option1")
@@ -112,42 +112,32 @@ var questionIndex=0
 
 var pidClock
 
+
 startBtn.addEventListener("click", function (){
     questionsDiv.classList.remove("hide")
     introDiv.classList.add("hide")
     loadQuestion()
-    pidClock=setInterval(countDown, 30000)
+    startBtn.style.display="none"
+    pidClock=setInterval(countDown, 1000)
 })
 function loadQuestion(){
+
     title.textContent=questions[questionIndex].q  
     option1.textContent=questions[questionIndex].c[0]
     option2.textContent=questions[questionIndex].c[1]
     option3.textContent=questions[questionIndex].c[2]
     option4.textContent=questions[questionIndex].c[3]
 } 
-  function countDown(){ 
-  //  if(timeRemaining===0)
+ function countDown(){ 
+  if(timeRemaining===0)
  {
-    clearInterval(pidClock)
-    questionsDiv.classList.add("hide")
-    initialDiv.classList.remove("hide")
+ clearInterval(pidClock)
+ questionsDiv.classList.add("hide")
+   initialDiv.classList.remove("hide")
 }
-Timer.textContent =timeRemaining
+time.textContent =timeRemaining
 timeRemaining--  //timeRemaining - timeRemaining-1
 }
-//function countDown() { 
-   // var timeInterval =setInterval(function(){
-   // if(timeRemaining> 1){
-  //  timerEl.textContent= timeRemaining + 'seconds remaining';
- //   timeRemaining--;
-  //  } else if(timeRemaining==0){timerEl.textContent = timeLeft + 'second remaining';
-//timeRemaining--;
-//} else{timerEl.textContent = '';
-  //  clearInterval(pidClock);
-  //  questionsDiv.classList.add("hide")
-  //  initialDiv.classList.remove("hide")
-    //displayMessage();
-
 function loadQuestion(){
     title.textContent=questions[questionIndex].q
     option1.textContent=questions[questionIndex].c[0]
@@ -174,7 +164,13 @@ option3.addEventListener("click", function(){
 option4.addEventListener("click", function(){
     questionIndex++
     loadQuestion()
+
+})    
+option5.addEventListener("click", function(){
+    questionIndex++
+    loadQuestion()
 })
+
 //var checkAnswer = "a"
 //<div class="option1" id="a"onclick="checkAnswer('1')">1</div>
    // let score =0;
