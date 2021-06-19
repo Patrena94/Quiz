@@ -24,10 +24,8 @@
 </div>
 <button id = "startBtn">start</button>
 <div id="end-screen" class="hide"></div>
-</div>
-<div class="card-body"
-</div>
-<div id ="questions" class = "hide"/>
+<div class="card-body"></div>
+<div id ="questions" class = "hide">
 <h1 id="title"></h1>
 <ul>
     <ol>
@@ -46,12 +44,9 @@
 </ul>
 </div>
 <div id="initialDiv" class="hide">
-</div>
-<div id="initialDiv"> 
     <input type="text" id="initial">
-    </div>
     <button id="submit">Submit</button>
-</div>
+    </div>
 
 <script>
     var startBtn = document.querySelector("#startBtn")
@@ -64,11 +59,18 @@
     var option2=document.querySelector("#option2")
     var option3=document.querySelector("#option3")
     var option4=document.querySelector("#option4")
+    var option5=document.querySelector("#option5")
+    var option6=document.querySelector("#option6")
+    var option7=document.querySelector("#option7")
+    var option8=document.querySelector("#option8")
+    var option9=document.querySelector("#option9")
+    var option10=document.querySelector("#option10")
+
 var questions = [
 {
 q: 'How many days are in a year?',
 c: ['365', '784', '24','364'],
-a:1
+a:"365"
 },
 {q: 'The Condition in an if/else statement is enclosed with ________?',
 c: ['quotes', 'curly brackets', 'parenthesis', 'square brackets'], 
@@ -102,10 +104,11 @@ a: 3 },
 q: 'the Declaration of Independence was created in?', 
 c: ['1864', '1715', '1776', '1765'],
 a:2},
-{q: 'Commonly used data types Do Not include:',
+{
+q: 'Commonly used data types Do Not include:',
 c: ['strings', 'booleans', 'alerts', 'numbers'], 
-a: 1 },
-];
+a: 1},
+]
 var timeRemaining = questions.length *15
 
 var questionIndex=0
@@ -127,9 +130,10 @@ function loadQuestion(){
     option2.textContent=questions[questionIndex].c[1]
     option3.textContent=questions[questionIndex].c[2]
     option4.textContent=questions[questionIndex].c[3]
+loadQuestion( )
 } 
  function countDown(){ 
-  if(timeRemaining===0)
+  if(timeRemaining<=0 ||questionIndex>= questions.length)
  {
  clearInterval(pidClock)
  questionsDiv.classList.add("hide")
@@ -144,61 +148,69 @@ function loadQuestion(){
     option2.textContent=questions[questionIndex].c[1]
     option3.textContent=questions[questionIndex].c[2]
     option4.textContent=questions[questionIndex].c[3]
+   
 }
 loadQuestion()
 option1.addEventListener("click", function(){
+    console.log (this.textContent)
+    if(this.textContent==questions[questionIndex].a){
+        console.log("correct")
+    } else {
+        console.log ("incorrect")
+       timeRemaining-=15 
+    }
     questionIndex++
-    loadQuestion()
+    if(questionIndex<questions.length){
+    loadQuestion()} 
 })
 
 option2.addEventListener("click", function(){
     questionIndex++
-    loadQuestion()
+    if(questionIndex<questions.length){
+    loadQuestion()} 
 })
 
 option3.addEventListener("click", function(){
     questionIndex++
-    loadQuestion()
+    if(questionIndex<questions.length){
+    loadQuestion()} 
 })
 
 option4.addEventListener("click", function(){
     questionIndex++
-    loadQuestion()
+if(questionIndex<questions.length){
+    loadQuestion()} 
 
 })    
-option5.addEventListener("click", function(){
-    questionIndex++
-    loadQuestion()
-})
+// option5.addEventListener("click", function(){
+//     questionIndex++
+//     loadQuestion()
+// })
+// option6.addEventListener("click", function(){
+//     questionIndex++
+//     loadQuestion()
+// })
 
-//var checkAnswer = "a"
-//<div class="option1" id="a"onclick="checkAnswer('1')">1</div>
-   // let score =0;
-  //  function checkAnswer ("a")
- //   {if (questions[runningquestionIndex].correct ==answer){ score++; 
-  //  answerisCorrect();
-////}else {answerisWrong();
-//}
-//if(runningquestionIndex < lastquestionIndex)
-//{ count =0; runningquestionIndex++;
-  //  questionrender();
-//}else
-//{ clearInterval(Timer);
-  //  }
-  //<div class="option2" id="a"onclick="checkAnswer('1')">1</div>
-   // let score =0;
-  //  function checkAnswer ("a")
- //   {if (questions[runningquestionIndex].correct ==answer){ score++; 
-  //  answerisCorrect();
-////}else {answerisWrong();
-//}
-//if(runningquestionIndex < lastquestionIndex)
-//{ count =0; runningquestionIndex++;
-  //  questionrender();
-//}else
-//{ clearInterval(Timer);
-  //  }
-    //}  
+// option7.addEventListener("click", function(){
+//     questionIndex++
+//     loadQuestion()
+// })
+
+// option8.addEventListener("click", function(){
+//     questionIndex++
+//     loadQuestion()
+// })
+
+// option9.addEventListener("click", function(){
+//     questionIndex++
+//     loadQuestion()
+
+// })    
+// option10.addEventListener("click", function(){
+//     questionIndex++
+//     loadQuestion()
+// });
+
 </script>
   </body>
 </html>

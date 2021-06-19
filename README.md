@@ -27,4 +27,42 @@ timeRemaining--;
     questionsDiv.classList.add("hide")
     initialDiv.classList.remove("hide")
     displayMessage();
-    assistance from Jamie with refractoring the function countdown.
+    assistance from Jamie removing the visibility of the start button.
+    consider the following code for checking the answers to questions. 
+//var checkAnswer = "a"
+//<div class="option1" id="a"onclick="checkAnswer('1')">1</div>
+   // let score =0;
+  //  function checkAnswer ("a")
+ //   {if (questions[runningquestionIndex].correct ==answer){ score++; 
+  //  answerisCorrect();
+////}else {answerisWrong();
+//}
+//if(runningquestionIndex < lastquestionIndex)
+//{ count =0; runningquestionIndex++;
+  //  questionrender();
+//}else
+//{ clearInterval(Timer);
+  //  }
+  //<div class="option2" id="a"onclick="checkAnswer('1')">1</div>
+   // let score =0;
+  //  function checkAnswer ("a")
+ //   {if (questions[runningquestionIndex].correct ==answer){ score++; 
+  //  answerisCorrect();
+////}else {answerisWrong();
+//}
+//if(runningquestionIndex < lastquestionIndex)
+//{ count =0; runningquestionIndex++;
+  //  questionrender();
+//}else
+//{ clearInterval(Timer);
+  //  }
+    //}
+
+    function loadQuestion(){
+    title.textContent=questions[questionIndex].q
+    option1.textContent=questions[questionIndex].c[0]
+    option2.textContent=questions[questionIndex].c[1]
+    option3.textContent=questions[questionIndex].c[2]
+    option4.textContent=questions[questionIndex].c[3]
+}
+loadQuestion()
