@@ -74,3 +74,4 @@ loadQuestion()
     Centered start button/header
     Enlarged font on header
     changed header font color for the statement to Navy Blue.
+    changed file name from Qindex to index.html
