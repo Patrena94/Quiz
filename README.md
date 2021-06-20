@@ -72,3 +72,5 @@ loadQuestion()
     set a max for the number of initials you could provide.
     Add All done statement.
     Centered start button/header
+    Enlarged font on header
+    changed header font color for the statement to Navy Blue.
