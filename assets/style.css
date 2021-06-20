@@ -29,13 +29,13 @@ header {
     color: hsl(206, 17%, 28%);
 }
 footer { 
-    background:navy;
+    background-color: lightskyblue;
     width: 100%; 
     padding: 40px 35px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    color: black;
+    color:navy;
 }
 footer h2 {  
     font-size: 30px; 
@@ -47,46 +47,14 @@ footer div {
 }
 footer a { color: #024e76;
 }    
-.card {
-    background-color: hsl(0,0%, 100%);
-    border-radius: 5px;
-    border-width: 1px;
-    box-shadow: rgba(o,o,o,o.15) opx 2px 8px 0px;
-    color: hsl (206, 17%, 28%);
-    font-size: 18px;
-    margin: 0 auto;
-    max-width: 800px;
-    padding: 30px 40px;
-    background-color: hotpink;
-    text-decoration-style: solid;
-}
-.card-header::after{
-    content:" ";
-    display: block;
-    width: 100%;
-    background: black;
-    height: 2px;
-}
-.card-body{ 
-    min-height: 100px;
-}
-.card-footer {
-    text-align: center;
-}
-.card-footer::before {
-    content: "";
-    display: block;
-    width: 100%;
-    background: black;
-    height: 2px;
-}
-.card-footer::after {
-    content:"";
-    display: block;
-    clear: both;
-}
+
 h1 {align-content: center;}
-p {align-items: Center;}
+p {align-items: Center;
+ color:navy;
+text-align: Center;
+font-size: 26px;
+font-style:italic ;
+}
 #startBtn {
     background-color: lightskyblue;
     border-radius: 25px;
@@ -99,11 +67,14 @@ p {align-items: Center;}
     margin: 16px 16px 16px 20px;
     padding: 14px 34px;
     text-align: center;
+    align-self: center;
     cursor:pointer;
 }
 #startBtn:active {background-color: lightseagreen;}
 .float-right {
     float:right;
+}
+#questions {text-align: Center;
 }
 #option1 {align-items: center;
          background-color: teal;

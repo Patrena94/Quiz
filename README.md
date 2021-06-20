@@ -66,3 +66,9 @@ timeRemaining--;
     option4.textContent=questions[questionIndex].c[3]
 }
 loadQuestion()
+    <
+    updated link on go back button to make it functional.
+    removed index.html optional placeholder file.
+    set a max for the number of initials you could provide.
+    Add All done statement.
+    Centered start button/header

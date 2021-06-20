@@ -18,14 +18,17 @@
 <div class="Timer">Time Remaining: <span id="time">0</span></div>
 <class id="start-screen" class="start">
 <div class= "wrapper">
+<div class=card-body> 
 <div id="introDiv">
+<header>  
 <h1>Quiz Game</h1>
 <p>Try to answer the following code-related questions within the time limit.  Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-</div>
 <button id = "startBtn">start</button>
+</div> 
 <div id="end-screen" class="hide"></div>
-<div class="card-body"></div>
+<div class="card-Body">
 <div id ="questions" class = "hide">
+</header>      
 <h1 id="title"></h1>
 <ul>
     <ol>
@@ -44,10 +47,15 @@
 </ul>
 </div>
 <div id="initialDiv" class="hide">
-    <input type="text" id="initial">
+    <h2> All Done!</h2>
+    Your final score
+   <div id ="feedback" class ="feedback hide"></div>
+    Enter initials:
+    <input type="text" id="initial" max="3">
     <button id="submit">Submit</button>
     </div>
-
+</div>
+</div>
 <script>
     var startBtn = document.querySelector("#startBtn")
     var questionsDiv = document.querySelector ("#questions")
@@ -74,40 +82,40 @@ a:"365"
 },
 {q: 'The Condition in an if/else statement is enclosed with ________?',
 c: ['quotes', 'curly brackets', 'parenthesis', 'square brackets'], 
-a: 3 },
+a: "parenthesis" },
 {
 q: 'Can pigs fly?',  
 c: ['no', 'on friday', 'maybe', 'yes'],
-a:3
+a:"no"
 },
 {
 q: 'Arrays in JavaScript can be used to store____?',
 c: ['numbers and strings', 'other arrays', 'booleans', 'all of the above'], 
-a: 4 },
+a: "all of the above" },
   {
 q: 'burgers can be made with which of the following proteins?', 
 c: ['Turkey', 'Beans', 'Beef', 'all of the above'],
-a: 3},
+a: "all of the above"},
 {
 q: 'String values must be enclosed within ______when being assigned to variables.',
 c: ['commas', 'curly brackets', 'quotes', 'parenthesis'], 
-a: 2 },
+a: "quotes"},
 {
 q: 'The Magna Carta was agreed to or signed in?',
 c: ['1214', '1215', '1512', '1575'], 
-a: 1 },
+a: "1215" },
 {
-q: 'Avery useful tool used during development and debugging for printing content to the debugger is:',
+q: 'A very useful tool used during development and debugging for printing content to the debugger is:',
 c: ['JavaScript', 'terminal/bash', 'for loops', 'console.log'], 
-a: 3 },
+a: "console.log" },
 { 
 q: 'the Declaration of Independence was created in?', 
 c: ['1864', '1715', '1776', '1765'],
-a:2},
+a:"1776"},
 {
 q: 'Commonly used data types Do Not include:',
 c: ['strings', 'booleans', 'alerts', 'numbers'], 
-a: 1},
+a: "alerts"},
 ]
 var timeRemaining = questions.length *15
 
@@ -153,10 +161,10 @@ function loadQuestion(){
 loadQuestion()
 option1.addEventListener("click", function(){
     console.log (this.textContent)
-    if(this.textContent==questions[questionIndex].a){
-        console.log("correct")
+    if(this.textContent==questions[questionIndex].a){window.alert("correct");
+    timeRemaining+=15
     } else {
-        console.log ("incorrect")
+        window.alert("incorrect");
        timeRemaining-=15 
     }
     questionIndex++
@@ -165,54 +173,52 @@ option1.addEventListener("click", function(){
 })
 
 option2.addEventListener("click", function(){
+    console.log (this.textContent)
+    if(this.textContent==questions[questionIndex].a){window.alert("correct"); 
+    timeRemaining+=15
+    } else {
+        window.alert("incorrect");
+       timeRemaining-=15 
+    }
     questionIndex++
     if(questionIndex<questions.length){
     loadQuestion()} 
 })
 
 option3.addEventListener("click", function(){
+    console.log (this.textContent)
+    if(this.textContent==questions[questionIndex].a){window.alert("correct");
+    timeRemaining+=15
+    } else {
+        window.alert("incorrect");
+       timeRemaining-=15 
+    }
     questionIndex++
     if(questionIndex<questions.length){
     loadQuestion()} 
 })
 
 option4.addEventListener("click", function(){
+    console.log (this.textContent)
+    if(this.textContent==questions[questionIndex].a){window.alert("correct");
+    timeRemaining+=15
+    } else {
+        window.alert("incorrect");
+       timeRemaining-=15 
+    }
     questionIndex++
 if(questionIndex<questions.length){
     loadQuestion()} 
-
-})    
-// option5.addEventListener("click", function(){
-//     questionIndex++
-//     loadQuestion()
-// })
-// option6.addEventListener("click", function(){
-//     questionIndex++
-//     loadQuestion()
-// })
-
-// option7.addEventListener("click", function(){
-//     questionIndex++
-//     loadQuestion()
-// })
-
-// option8.addEventListener("click", function(){
-//     questionIndex++
-//     loadQuestion()
-// })
-
-// option9.addEventListener("click", function(){
-//     questionIndex++
-//     loadQuestion()
-
-// })    
-// option10.addEventListener("click", function(){
-//     questionIndex++
-//     loadQuestion()
-// });
-
+})
 </script>
+<script src="./assets/Password.js"></script>
   </body>
+  <footer>
+    <h3>Created by Patrena A.D.Smith</h3>
+    <div>
+      &copy; 2021 Patrena A. D. Smith, LLC.
+  </div>
+</footer>
 </html>
 
 
